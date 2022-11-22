@@ -1,0 +1,49 @@
+use classicmodels;
+-- create unique index index_name on products(productName);
+-- create index index_COMPOSITE_Name on products(productName,buyPrice);
+-- explain select * from products where productName = "1969 Harley Davidson Ultimate Chopper";
+-- create view  as select productCode,productName,buyPrice from products;
+-- select * from view_name;
+-- delete from view_name where productCode = 'S24_1937';
+-- update view_name
+-- set productName = "mai"
+-- where productCode = "S24_2011";
+-- select * from view_name;
+-- DELIMITER //
+-- create procedure sp_procedure()
+-- begin
+-- select*from products;
+-- end
+-- //DELIMITER ;
+-- call sp_procedure;
+-- DELIMITER //
+-- create procedure addProduct1(in `Code` varchar(15),in `name` varchar(70),in line varchar(50),in Scale varchar(10),in Vendor varchar(50),in `Description` text
+-- ,in quantity smallint,in Price DECIMAL(10,2),in MSRP DECIMAL(10,2)
+-- )
+-- begin
+-- insert into productlines(productLine)
+-- value(line);
+-- insert into products (productCode,productName,productLine,productScale,productVendor,productDescription,quantityInStock,buyPrice,MSRP)
+-- value (`Code`,`name`,line,Scale,Vendor,`Description`,quantity,Price,MSRP);
+-- end
+-- //DELIMITER ;productlines
+-- call addProduct1("1","1","1","1","1","1","1",1,1);
+-- DELIMITER //
+-- create procedure updatePruduct(in `Code` varchar(15),in `name` varchar(70),in line varchar(50),in Scale varchar(10),in Vendor varchar(50),in `Description` text
+-- ,in quantity smallint,in Price DECIMAL(10,2),in MSRPp DECIMAL(10,2)
+-- )
+-- begin
+-- update products
+-- set productName = `name`,productLine = line,productScale = Scale,productVendor = Vendor,productDescription = `Description`,quantityInStock= quantity,buyPrice = Price,MSRP = MSRPp
+-- where productCode = `Code`;
+-- end
+-- //DELIMITER ;
+-- call updatePruduct(1,2,1,4,5,6,7,8,9);
+-- DELIMITER //
+-- create procedure deleteProduct(in `Code` varchar(15))
+-- begin
+-- delete from products 
+-- where productCode = `Code`;
+-- end
+-- //DELIMITER ;
+call deleteProduct(1);
